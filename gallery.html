@@ -11,13 +11,56 @@
       font-family: 'Cairo', sans-serif;
       background-color: #1a1a1a;
       color: #f0f0f0;
+      scroll-behavior: smooth;
     }
-    h1 {
-      text-align: center;
-      padding: 30px 0;
-      font-size: 2.5em;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #121212;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 2.2em;
       color: #00bcd4;
+      margin: 0;
     }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .icon-circle {
+      width: 40px;
+      height: 40px;
+      background-color: #2c2c2c;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .icon-circle svg {
+      width: 20px;
+      height: 20px;
+      fill: #f0f0f0;
+    }
+
+    .icon-circle:hover {
+      background-color: #00bcd4;
+      transform: scale(1.15);
+    }
+
+    .icon-circle:hover svg {
+      fill: #000;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -26,155 +69,91 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .photo {
       background-color: #2c2c2c;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 15px rgba(0,0,0,0.4);
       transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards;
     }
+
     .photo:hover {
       transform: scale(1.03);
     }
+
     .photo img {
       width: 100%;
       height: auto;
       display: block;
     }
+
     .caption {
       padding: 15px;
       text-align: center;
     }
+
     .caption h3 {
       margin: 0 0 10px;
       color: #ff9800;
       font-size: 1.2em;
     }
+
     .caption p {
       margin: 0;
       font-size: 0.95em;
       color: #ccc;
     }
-    .social {
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
       text-align: center;
-      margin: 60px 0 40px;
+      padding: 30px 10px;
+      background-color: #121212;
+      color: #888;
+      font-size: 0.9em;
     }
-    .social h2 {
-      font-size: 1.8em;
-      color: #00bcd4;
-      margin-bottom: 20px;
-    }
-    .links a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background-color: #2c2c2c;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 1em;
-      transition: background-color 0.3s ease;
-    }
-    .links a:hover {
+
+    #toTop {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
       background-color: #00bcd4;
       color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: none;
+      transition: background-color 0.3s ease;
+    }
+
+    #toTop:hover {
+      background-color: #0097a7;
     }
   </style>
 </head>
 <body>
-  <h1>مرحبًا بكم في معرض زياد</h1>
-  <div class="gallery">
 
-    <div class="photo">
-      <img src="images/trees.jpg" alt="لحظة بين الأغصان" />
-      <div class="caption">
-        <h3>لحظة بين الأغصان</h3>
-        <p>في لحظة هدوء، كل شيء كان متناغم.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/gym.jpg" alt="قوة وابتسامة" />
-      <div class="caption">
-        <h3>قوة وابتسامة</h3>
-        <p>كل تمرين بيقوّي جسمي… وكل لحظة بتقوّي إرادتي.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/stadium.jpg" alt="نبض المدرجات" />
-      <div class="caption">
-        <h3>نبض المدرجات</h3>
-        <p>من قلب التشجيع المصري، فيه روح ما تتوصفش.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/sea.jpg" alt="هدوء البحر" />
-      <div class="caption">
-        <h3>هدوء البحر</h3>
-        <p>الموج بيحكي قصص، وأنا كنت جزء منها.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/road.jpg" alt="طريق الحرية" />
-      <div class="caption">
-        <h3>طريق الحرية</h3>
-        <p>كل طريق مشيته كان بيقربني من نفسي.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/sky.jpg" alt="سماء الأحلام" />
-      <div class="caption">
-        <h3>سماء الأحلام</h3>
-        <p>كل غيمة كانت فكرة، وكل لون كان إحساس.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/track.jpg" alt="الركض نحو الحلم" />
-      <div class="caption">
-        <h3>الركض نحو الحلم</h3>
-        <p>كل خطوة على التراك بتقربني من اللي أنا عايزه… العرق ده مش تعب، ده شغف.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/conference.jpg" alt="كلامي له معنى" />
-      <div class="caption">
-        <h3>كلامي له معنى</h3>
-        <p>في وسط الناس، لما أتكلم… بحس إن صوتي بيحكي قصة مش بس فكرة.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/airport.jpg" alt="رحلة جديدة" />
-      <div class="caption">
-        <h3>رحلة جديدة</h3>
-        <p>كل بوابة في المطار هي بداية لحكاية… وأنا دايمًا جاهز أعيشها.</p>
-      </div>
-    </div>
-
-    <div class="photo">
-      <img src="images/relax.jpg" alt="هدوء يستحقه قلبي" />
-      <div class="caption">
-        <h3>هدوء يستحقه قلبي</h3>
-        <p>في لحظة استجمام، بحس إني برجع لنفسي… وبفتكر ليه بدأت الرحلة دي أصلاً.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="social">
-    <h2>تابعني على السوشيال ميديا</h2>
-    <div class="links">
-      <a href="https://www.tiktok.com/@zeyadd_adel?_t=ZS-8ykPYkjulbF&_r=1" target="_blank">🎵 TikTok</a>
-      <a href="https://www.instagram.com/zeyad1_16" target="_blank">📸 Instagram</a>
-      <a href="https://youtube.com/@zyadadelvlogs?si=i6AsxhTU6iIDrcxs" target="_blank">🎥 YouTube</a>
-    </div>
-  </div>
-
-</body>
-</html>
+  <header>
+    <h1>مرحبًا بكم في معرض زياد</h1>
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@zeyadd_adel?_t=ZS-8ykPYkjulbF&_r=1" target="_blank" title="TikTok">
+        <div class="icon-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.3v125.8c-26.2 0-52.1-5.1-76.3-15.2v71.5c0 88.4-71.6 160-160 160S52 480.8 52 392.4c0-88.4 71.6-160 160-160 11.4 0 22.5 1.2 33.2 3.5v83.6c-10.7-3.3-22-5.1-33.2-5.1-44.1 0-80 35.9-80 80s35.9 80 80 80 80-35.9 80-80V0h80c0 115.1 93.2 209.3 208 209.3z"/></svg>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/zeyad1_16" target="_blank" title="Instagram">
+        <div class="icon-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="
