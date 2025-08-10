@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>موقع زياد</title>
+  <title>معرض زياد | لحظات من الرحلة</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -14,7 +14,18 @@
       text-align: center;
     }
     .container {
-      padding: 100px 20px;
+      padding: 80px 20px;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .profile-img {
+      width: 140px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
     h1 {
       font-size: 3em;
@@ -39,13 +50,21 @@
     a.button:hover {
       background-color: #0097a7;
     }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <img src="images/zeyad-header.jpg" alt="صورة زياد" class="profile-img">
     <h1>أهلاً بيك في عالم زياد</h1>
     <p>رحلة بين الصور، اللحظات، والمشاعر اللي بتعبر عنّي.</p>
-    <a href="gallery.html" class="button">ادخل المعرض</a>
+    <a href="gallery.html" class="button">📸 ادخل المعرض</a>
+    <footer>© زياد فلوجز - 2025</footer>
   </div>
 </body>
 </html>
+
