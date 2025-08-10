@@ -9,8 +9,22 @@
     body {
       margin: 0;
       font-family: 'Cairo', sans-serif;
-      background-color: #000;
       color: #fff;
+    }
+
+    .montage-page {
+      background: url('images/montage-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .montage-page .overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
     }
 
     .navbar {
@@ -111,7 +125,9 @@
     }
   </style>
 </head>
-<body>
+<body class="montage-page">
+
+  <div class="overlay"></div>
 
   <div class="navbar">
     <a href="index.html">🏠 الصفحة الرئيسية</a>
@@ -154,3 +170,4 @@
 
 </body>
 </html>
+
