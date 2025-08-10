@@ -4,107 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>معرض زياد</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>مرحبًا بكم في معرض زياد</h1>
-  <div class="gallery">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+    }
 
-    <div class="photo" style="--i:1;">
-      <img src="images/trees.jpg" alt="لحظة بين الأغصان" />
-      <div class="caption">
-        <h3>لحظة بين الأغصان</h3>
-        <p>في لحظة هدوء، كل شيء كان متناغم.</p>
-      </div>
-    </div>
+    h1, h2, h3 {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
 
-    <div class="photo" style="--i:2;">
-      <img src="images/gym.jpg" alt="قوة وابتسامة" />
-      <div class="caption">
-        <h3>قوة وابتسامة</h3>
-        <p>كل تمرين بيقوّي جسمي… وكل لحظة بتقوّي إرادتي.</p>
-      </div>
-    </div>
+    p {
+      color: #CCCCCC;
+      font-size: 18px;
+      line-height: 1.6;
+    }
 
-    <div class="photo" style="--i:3;">
-      <img src="images/stadium.jpg" alt="نبض المدرجات" />
-      <div class="caption">
-        <h3>نبض المدرجات</h3>
-        <p>من قلب التشجيع المصري، فيه روح ما تتوصفش.</p>
-      </div>
-    </div>
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      padding: 40px 20px;
+    }
 
-    <div class="photo" style="--i:4;">
-      <img src="images/sea.jpg" alt="هدوء البحر" />
-      <div class="caption">
-        <h3>هدوء البحر</h3>
-        <p>الموج بيحكي قصص، وأنا كنت جزء منها.</p>
-      </div>
-    </div>
+    .photo {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s ease forwards;
+    }
 
-    <div class="photo" style="--i:5;">
-      <img src="images/road.jpg" alt="طريق الحرية" />
-      <div class="caption">
-        <h3>طريق الحرية</h3>
-        <p>كل طريق مشيته كان بيقربني من نفسي.</p>
-      </div>
-    </div>
+    .photo:nth-child(n) {
+      animation-delay: calc(var(--i) * 0.2s);
+    }
 
-    <div class="photo" style="--i:6;">
-      <img src="images/sky.jpg" alt="سماء الأحلام" />
-      <div class="caption">
-        <h3>سماء الأحلام</h3>
-        <p>كل غيمة كانت فكرة، وكل لون كان إحساس.</p>
-      </div>
-    </div>
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-    <div class="photo" style="--i:7;">
-      <img src="images/track.jpg" alt="الركض نحو الحلم" />
-      <div class="caption">
-        <h3>الركض نحو الحلم</h3>
-        <p>كل خطوة على التراك بتقربني من اللي أنا عايزه… العرق ده مش تعب، ده شغف.</p>
-      </div>
-    </div>
+    .photo img {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
 
-    <div class="photo" style="--i:8;">
-      <img src="images/conference.jpg" alt="كلامي له معنى" />
-      <div class="caption">
-        <h3>كلامي له معنى</h3>
-        <p>في وسط الناس، لما أتكلم… بحس إن صوتي بيحكي قصة مش بس فكرة.</p>
-      </div>
-    </div>
+    .photo:hover img {
+      transform: scale(1.02);
+    }
 
-    <div class="photo" style="--i:9;">
-      <img src="images/airport.jpg" alt="رحلة جديدة" />
-      <div class="caption">
-        <h3>رحلة جديدة</h3>
-        <p>كل بوابة في المطار هي بداية لحكاية… وأنا دايمًا جاهز أعيشها.</p>
-      </div>
-    </div>
+    .caption {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+    }
 
-    <div class="photo" style="--i:10;">
-      <img src="images/relax.jpg" alt="هدوء يستحقه قلبي" />
-      <div class="caption">
-        <h3>هدوء يستحقه قلبي</h3>
-        <p>في لحظة استجمام، بحس إني برجع لنفسي… وبفتكر ليه بدأت الرحلة دي أصلاً.</p>
-      </div>
-    </div>
+    .caption h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
 
-  </div>
+    .caption p {
+      margin: 0;
+      font-size: 16px;
+    }
 
-  <div class="back-home">
-    <a href="index.html">🏠 الصفحة الرئيسية</a>
-  </div>
+    .back-home {
+      text-align: center;
+      padding: 40px;
+    }
 
-  <div class="social">
-    <h2>تابعني على السوشيال ميديا</h2>
-    <div class="links">
-      <a href="https://www.tiktok.com/@zeyadd_adel?_t=ZS-8ykPYkjulbF&_r=1" target="_blank">🎵 TikTok</a>
-      <a href="https://www.instagram.com/zeyad1_16" target="_blank">📸 Instagram</a>
-      <a href="https://youtube.com/@zyadadelvlogs?si=i6AsxhTU6iIDrcxs" target="_blank">🎥 YouTube</a>
-    </div>
-  </div>
+    .back-home a {
+      color: #00FFB2;
+      font-size: 20px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-</body>
-</html>
+    .back-home a:hover {
+      color: #00cc90;
+    }
+
+    .social {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #111111;
+    }
+
+    .social h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .social .
