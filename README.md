@@ -1,1 +1,1 @@
-# mediagame.com
+# mediagame.github.io
