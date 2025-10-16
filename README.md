@@ -1,1 +1,1 @@
-# mediagame.come
+# mediagame.com
